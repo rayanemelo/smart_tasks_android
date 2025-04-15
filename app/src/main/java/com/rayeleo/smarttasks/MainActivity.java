@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void abrirTelaListagem(View v) {
-        Intent intent = new Intent(this, CadastroActivity.class); //alterar
+        Intent intent = new Intent(this, ListagemActivity.class);
         startActivity(intent);
     }
 

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -88,6 +89,13 @@ public class CadastroActivity extends AppCompatActivity {
         }
 
         TarefaEntity novaTarefa = new TarefaEntity(titulo, descricao, data);
-        tarefaRepository.create(novaTarefa);
+        long id = tarefaRepository.create(novaTarefa);
+
+        if (id > 0) {
+            Toast.makeText(this, "Tarefa cadastrada com sucesso!", Toast.LENGTH_SHORT).show();
+            finish();
+        } else {
+            Toast.makeText(this, "Erro ao cadastrar tarefa. Tente novamente.", Toast.LENGTH_SHORT).show();
+        }
     }
 }
