@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Smart Tasks</string>
+    <string name="button_main_1">Cadastro de Tarefa</string>
+    <string name="button_main_2">Listagem De Tarefas</string>
+    <string name="button_main_3">Compartilhar Link</string>
+    <string name="button_main_4">Análise Inteligente</string>
+    <string name="button_main_5">Sobre</string>
+    <string name="button_main_6"><u>Acessar Site do Curso</u></string>
+    <string name="cadastrar_tarefa">Cadastrar Tarefa</string>
+    <string name="titulo_tarefa">Titulo</string>
+    <string name="descricao_tarefa">Descrição</string>
+    <string name="data_tarefa">Data</string>
+    <string name="salvar">Salvar</string>
+    <string name="nomes">Nomes: </string>
+    <string name="ray">Rayane Melo</string>
+    <string name="leo">Leonardo Passos</string>
+</resources>
