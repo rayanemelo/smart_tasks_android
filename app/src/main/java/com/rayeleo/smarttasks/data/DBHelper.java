@@ -7,14 +7,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "smart_tasks.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
 
     private static final String TABLE_CREATE = "CREATE TABLE IF NOT EXISTS tarefas (" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "nome TEXT NOT NULL, " +
             "descricao TEXT NOT NULL, " +
-            "data TEXT NOT NULL);";
+            "data TEXT NOT NULL, " +
+            "prioridade INTEGER DEFAULT 0);";
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

@@ -1,8 +1,10 @@
 package com.rayeleo.smarttasks;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +15,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rayeleo.smarttasks.adapters.TarefaAdapter;
+import com.rayeleo.smarttasks.entities.TarefaEntity;
 import com.rayeleo.smarttasks.repositories.TarefaRepository;
+
+import java.util.List;
 
 public class ListagemActivity extends AppCompatActivity {
 
@@ -38,9 +43,9 @@ public class ListagemActivity extends AppCompatActivity {
         tarefaRepository = new TarefaRepository(this);
         tarefaRepository.open();
 
-        Cursor cursor = tarefaRepository.findAll();
+        List<TarefaEntity> tarefas = tarefaRepository.findAll();
 
-        tarefaAdapter = new TarefaAdapter(this, cursor);
+        tarefaAdapter = new TarefaAdapter(this, tarefas);
         recyclerView.setAdapter(tarefaAdapter);
 
         tarefaRepository.close();

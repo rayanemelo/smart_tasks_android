@@ -2,28 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textViewNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nome da Tarefa"
         android:textSize="18sp"
+        android:layout_marginLeft="16dp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewDescricao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Descrição da Tarefa"
+        android:layout_marginLeft="16dp"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/textViewData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Data"
+        android:layout_marginLeft="16dp"
         android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textViewPrioridade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:textSize="12sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D9DFC6"
+        android:layout_marginVertical="8dp"/>
 </LinearLayout>

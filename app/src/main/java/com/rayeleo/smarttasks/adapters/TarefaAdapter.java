@@ -1,6 +1,7 @@
 package com.rayeleo.smarttasks.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,16 +10,20 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.rayeleo.smarttasks.DetalhesActivity;
 import com.rayeleo.smarttasks.R;
+import com.rayeleo.smarttasks.entities.TarefaEntity;
+
+import java.util.List;
 
 public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaViewHolder> {
 
     private Context context;
-    private Cursor cursor;
+    private List<TarefaEntity> tarefas;
 
-    public TarefaAdapter(Context context, Cursor cursor) {
+    public TarefaAdapter(Context context, List<TarefaEntity> tarefas) {
         this.context = context;
-        this.cursor = cursor;
+        this.tarefas = tarefas;
     }
 
     @Override
@@ -29,26 +34,22 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaView
 
     @Override
     public void onBindViewHolder(TarefaViewHolder holder, int position) {
-        if (cursor != null && cursor.moveToPosition(position)) {
-            int nomeIndex = cursor.getColumnIndex("nome");
-            int descricaoIndex = cursor.getColumnIndex("descricao");
-            int dataIndex = cursor.getColumnIndex("data");
+        TarefaEntity tarefa = tarefas.get(position);
+        holder.nomeTextView.setText(tarefa.getNome());
+        holder.descricaoTextView.setText(tarefa.getDescricao());
+        holder.dataTextView.setText(tarefa.getData());
+        holder.prioridadeTextView.setText(tarefa.getPrioridade().name());
 
-            if (nomeIndex >= 0 && descricaoIndex >= 0 && dataIndex >= 0) {
-                String nome = cursor.getString(nomeIndex);
-                String descricao = cursor.getString(descricaoIndex);
-                String data = cursor.getString(dataIndex);
-
-                holder.nomeTextView.setText(nome);
-                holder.descricaoTextView.setText(descricao);
-                holder.dataTextView.setText(data);
-            }
-        }
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, DetalhesActivity.class);
+            intent.putExtra("tarefa", tarefa);
+            context.startActivity(intent);
+        });
     }
 
     @Override
     public int getItemCount() {
-        return cursor != null ? cursor.getCount() : 0;
+        return tarefas != null ? tarefas.size() : 0;
     }
 
     public class TarefaViewHolder extends RecyclerView.ViewHolder {
@@ -56,12 +57,14 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaView
         TextView nomeTextView;
         TextView descricaoTextView;
         TextView dataTextView;
+        TextView prioridadeTextView;
 
         public TarefaViewHolder(View itemView) {
             super(itemView);
             nomeTextView = itemView.findViewById(R.id.textViewNome);
             descricaoTextView = itemView.findViewById(R.id.textViewDescricao);
             dataTextView = itemView.findViewById(R.id.textViewData);
+            prioridadeTextView = itemView.findViewById(R.id.textViewPrioridade);
         }
     }
 }

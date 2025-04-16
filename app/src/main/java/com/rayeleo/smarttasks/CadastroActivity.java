@@ -1,12 +1,13 @@
 package com.rayeleo.smarttasks;
 
 import android.app.DatePickerDialog;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -16,6 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.rayeleo.smarttasks.entities.TarefaEntity;
+import com.rayeleo.smarttasks.enums.PrioridadeTarefa;
 import com.rayeleo.smarttasks.repositories.TarefaRepository;
 
 import java.util.Calendar;
@@ -66,6 +68,15 @@ public class CadastroActivity extends AppCompatActivity {
             );
             datePickerDialog.show();
         });
+
+        RadioGroup radioGroupPrioridade = findViewById(R.id.radioGroupPrioridade);
+
+        for (PrioridadeTarefa prioridade : PrioridadeTarefa.values()) {
+            RadioButton radioButton = new RadioButton(this);
+            radioButton.setText(prioridade.name());
+            radioButton.setTag(prioridade.getValor());
+            radioGroupPrioridade.addView(radioButton);
+        }
     }
 
     public void salvarTarefa(View v){
@@ -88,7 +99,18 @@ public class CadastroActivity extends AppCompatActivity {
             return;
         }
 
-        TarefaEntity novaTarefa = new TarefaEntity(titulo, descricao, data);
+        RadioGroup radioGroupPrioridade = findViewById(R.id.radioGroupPrioridade);
+        int selectedId = radioGroupPrioridade.getCheckedRadioButtonId();
+
+        if (selectedId == -1) {
+            Toast.makeText(this, "Selecione a prioridade", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        RadioButton selectedRadio = findViewById(selectedId);
+        int prioridadeValor = (int) selectedRadio.getTag();
+
+        TarefaEntity novaTarefa = new TarefaEntity(titulo, descricao, data, PrioridadeTarefa.fromValor(prioridadeValor));
         long id = tarefaRepository.create(novaTarefa);
 
         if (id > 0) {
