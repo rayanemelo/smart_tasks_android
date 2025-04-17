@@ -85,7 +85,8 @@
                 android:backgroundTint="@color/white"
                 android:textColor="@color/primary"
                 android:drawableStart="@drawable/ic_link"
-                android:drawablePadding="8dp" />
+                android:drawablePadding="8dp"
+                android:onClick="abrirCompartilhamento"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button4"

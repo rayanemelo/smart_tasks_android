@@ -21,9 +21,12 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaView
     private Context context;
     private List<TarefaEntity> tarefas;
 
-    public TarefaAdapter(Context context, List<TarefaEntity> tarefas) {
+    private View.OnClickListener externalClickListener;
+
+    public TarefaAdapter(Context context, List<TarefaEntity> tarefas, View.OnClickListener clickListener) {
         this.context = context;
         this.tarefas = tarefas;
+        this.externalClickListener = clickListener;
     }
 
     @Override
@@ -40,11 +43,18 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaView
         holder.dataTextView.setText(tarefa.getData());
         holder.prioridadeTextView.setText(tarefa.getPrioridade().name());
 
-        holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, DetalhesActivity.class);
-            intent.putExtra("tarefa", tarefa);
-            context.startActivity(intent);
-        });
+        if (externalClickListener != null) {
+            // Ação de clique personalizada
+            holder.itemView.setTag(tarefa);
+            holder.itemView.setOnClickListener(externalClickListener);
+        } else {
+            // Comportamento padrão
+            holder.itemView.setOnClickListener(v -> {
+                Intent intent = new Intent(context, DetalhesActivity.class);
+                intent.putExtra("tarefa", tarefa);
+                context.startActivity(intent);
+            });
+        }
     }
 
     @Override

@@ -3,6 +3,8 @@ package com.rayeleo.smarttasks.entities;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+
 import com.rayeleo.smarttasks.enums.PrioridadeTarefa;
 
 public class TarefaEntity implements Parcelable {
@@ -96,5 +98,11 @@ public class TarefaEntity implements Parcelable {
         parcel.writeString(descricao);
         parcel.writeString(data);
         parcel.writeInt(prioridade.getValor());
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return String.format("Nome: %s / Descrição: %s / Data: %s / Prioridade: %s", nome, descricao, data, prioridade.name());
     }
 }

@@ -45,7 +45,7 @@ public class ListagemActivity extends AppCompatActivity {
 
         List<TarefaEntity> tarefas = tarefaRepository.findAll();
 
-        tarefaAdapter = new TarefaAdapter(this, tarefas);
+        tarefaAdapter = new TarefaAdapter(this, tarefas, null);
         recyclerView.setAdapter(tarefaAdapter);
 
         tarefaRepository.close();

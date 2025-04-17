@@ -43,7 +43,7 @@ public class ListagemInteligenteActivity extends AppCompatActivity {
 
         List<TarefaEntity> tarefas = aplicarAlgoritmoInteligente(tarefaRepository.findAll());
 
-        tarefaAdapter = new TarefaAdapter(this, tarefas);
+        tarefaAdapter = new TarefaAdapter(this, tarefas, null);
         recyclerView.setAdapter(tarefaAdapter);
 
         tarefaRepository.close();
