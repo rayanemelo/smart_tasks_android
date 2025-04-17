@@ -15,5 +15,6 @@
     <string name="ray">Rayane Melo</string>
     <string name="leo">Leonardo Passos</string>
     <string name="titulo_listagem">Lista de Tarefas</string>
+    <string name="titulo_listagem_inteligente">Análise Inteligente</string>
     <string name="titulo_detalhes">Detalhes da Tarefa</string>
 </resources>

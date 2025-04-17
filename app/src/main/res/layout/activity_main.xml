@@ -118,7 +118,8 @@
                 android:gravity="bottom|center_horizontal"
                 android:text="@string/button_main_6"
                 android:textColor="@color/primary"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="abrirSiteDoCurso"/>
 
         </LinearLayout>
 

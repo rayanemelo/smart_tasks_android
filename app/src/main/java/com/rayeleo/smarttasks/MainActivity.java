@@ -1,6 +1,7 @@
 package com.rayeleo.smarttasks;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
@@ -35,12 +36,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void abrirTelaAnaliseInteligente(View v) {
-        Intent intent = new Intent(this, CadastroActivity.class); //alterar
+        Intent intent = new Intent(this, ListagemInteligenteActivity.class);
         startActivity(intent);
     }
 
     public void abrirTelaSobre(View v) {
         Intent intent = new Intent(this, SobreActivity.class);
+        startActivity(intent);
+    }
+
+    public void abrirSiteDoCurso(View v) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ifrs.edu.br/rolante/tecnologia-em-analise-e-desenvolvimento-de-sistemas/"));
         startActivity(intent);
     }
 }

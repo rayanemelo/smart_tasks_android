@@ -1,9 +1,9 @@
 package com.rayeleo.smarttasks.enums;
 
 public enum PrioridadeTarefa {
-    ALTA(1),
+    BAIXA(1),
     MEDIA(2),
-    BAIXA(3);
+    ALTA(3);
 
     private final int valor;
 
