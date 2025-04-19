@@ -50,4 +50,5 @@ public class ListagemActivity extends AppCompatActivity {
 
         tarefaRepository.close();
     }
+
 }

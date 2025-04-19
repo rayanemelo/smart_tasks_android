@@ -56,6 +56,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:text="@string/titulo_tarefa"
+                />
+
+            <TextView
+                android:id="@+id/textDescricaoDetalheTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/descricao_tarefa2"
+                android:textStyle="bold"
                 />
 
             <TextView
@@ -63,18 +75,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:text="@string/descricao_tarefa"
+                android:layout_marginBottom="10dp"
                 />
             <TextView
                 android:id="@+id/textDataDetalhe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/data_tarefa"
+                />
+            <TextView
+                android:id="@+id/textPrioridadeDetalheTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/prioridade_tarefa"
+                android:textStyle="bold"
                 />
             <TextView
                 android:id="@+id/textPrioridadeDetalhe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:text="@string/prioridade_tarefa"
                 />
 
         </LinearLayout>

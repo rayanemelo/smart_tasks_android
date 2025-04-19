@@ -9,6 +9,7 @@
     <string name="cadastrar_tarefa">Cadastrar Tarefa</string>
     <string name="titulo_tarefa">Titulo</string>
     <string name="descricao_tarefa">Descrição</string>
+    <string name="descricao_tarefa2">Descrição: </string>
     <string name="data_tarefa">Data</string>
     <string name="salvar">Salvar</string>
     <string name="nomes">Nomes: </string>
@@ -17,4 +18,6 @@
     <string name="titulo_listagem">Lista de Tarefas</string>
     <string name="titulo_listagem_inteligente">Análise Inteligente</string>
     <string name="titulo_detalhes">Detalhes da Tarefa</string>
+    <string name="prioridade_tarefa">Prioridade: </string>
+    <string name="option">Escolha uma opção</string>
 </resources>

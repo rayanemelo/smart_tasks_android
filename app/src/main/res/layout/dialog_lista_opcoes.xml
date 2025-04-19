@@ -12,7 +12,7 @@
             android:id="@+id/textoTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Escolha uma opção"
+            android:text="@string/option"
             android:textSize="18sp"
             android:paddingBottom="12dp"
             android:textStyle="bold" />
